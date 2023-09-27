@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<title>Bright Night</title>
+	<link rel='preconnect' href='https://fonts.googleapis.com'>
+	<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+	<link href='https://fonts.googleapis.com/css2?family=Borel&family=Outfit:wght@400;500;700&display=swap' rel='stylesheet'>
+	<script src='https://cdn.tailwindcss.com'></script>
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						blue: '#3f51b5',
+						green: '#51FFBC',
+						violet: '#9F86FF'
+					},
+					fontFamily: {
+						'base': ['Outfit', 'sans-serif'],
+						'cursive': ['Borel', 'serif']
+					}, 
+					fontSize : {
+						'2xs': '0.625rem',
+					},
+					backdropBlur: {
+						xs: '2.5px',
+					}
+				}
+			}
+		}
+	</script>
+	<link rel='stylesheet' type='text/css' href='static/style.css'>
+</head>
+<body class='flex justify-center items-center h-screen bg-blue text-white'>
+	<main class='flex flex-col justify-between max-w-sm py-4 h-screen'>
+		<header class='w-full pb-4 text-center text-xl font-bold'>
+			<h1>✨ Bright night ✨</h1>
+		</header>
+		<div class="w-full h-full flex flex-col items-center justify-center pb-24 text-md">
+			<form id='form' class="flex flex-col items-center gap-4">
+				<label for='prediction' class="">your prediction</label>
+				<input class="bg-white text-blue px-4 py-2 rounded-full outline-none w-36 text-center pr-2" type="number" step='0.01' name="prediction" value="0"/>
+				<button type='submit' class="bg-white text-blue px-4 py-2 rounded-full font-bold text-sm mt-1">Submit</button>
+			</form>
+		</div>
+	<script src='static/index.js'></script>
+</body>
+</html>
