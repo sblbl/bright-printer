@@ -1,5 +1,4 @@
-import datetime
-import time
+import os
 import cups  # if using rpi pip uninstall pycups and pip install cups
 
 # import RPi.GPIO as GPIO
@@ -13,11 +12,22 @@ printer = printers["Xprinter_XP_420B"]
 # printer = printers['Xprinter-XP-420B']
 
 
+def writeRecord(value, i):
+    # if there is no file create one
+    if not os.path.isfile("records.tsv"):
+        with open("records.tsv", "w") as f:
+            f.write("code\tprediction\n")
+
+    with open("records.tsv", "a") as f:
+        f.write(f"{i}\t{value}\n")
+
+
 def printReceipt(value, i):
     print("printing")
 
     # make i to be 4 digits
     i = str(i).zfill(4)
+    writeRecord(value, i)
 
     base_img = Image.open("scontrino.png")
     im = ImageDraw.Draw(base_img)
