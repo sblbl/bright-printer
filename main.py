@@ -10,7 +10,16 @@ app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
-i = 0
+# if there is a records.tsv file, read the last line and get the last i
+# if not, set i to 0
+try:
+    with open("records.tsv", "r") as f:
+        lines = f.readlines()
+        i = int(lines[-1].split("\t")[0]) + 1
+except:
+    i = 0
+
+print("i is", i)
 
 
 @app.get("/", response_class=HTMLResponse)

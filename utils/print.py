@@ -5,10 +5,10 @@ import cups  # if using rpi pip uninstall pycups and pip install cups
 from PIL import Image, ImageDraw, ImageFont
 from random import randint
 
-conn = cups.Connection()
-printers = conn.getPrinters()
+# conn = cups.Connection()
+# printers = conn.getPrinters()
 # print(printers)
-printer = printers["Xprinter_XP_420B"]
+# printer = printers["Xprinter_XP_420B"]
 # printer = printers['Xprinter-XP-420B']
 
 
@@ -44,4 +44,4 @@ def printReceipt(value, i):
     base_img.save("temp.png")
 
     # print by filling all the space
-    conn.printFile("Xprinter_XP_420B", "temp.png", "image", {"fit-to-page": "true"})
+    # conn.printFile("Xprinter_XP_420B", "temp.png", "image", {"fit-to-page": "true"})
